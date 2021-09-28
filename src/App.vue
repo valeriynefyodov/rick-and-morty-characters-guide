@@ -1,30 +1,73 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Header />
+  <div class="app__wrapper">
+    <Notifications />
+    <router-view />
   </div>
-  <router-view />
 </template>
 
+<script>
+import { getCharacters, getCharacter } from "@/services/api";
+import Header from "@/components/Header";
+import Notifications from "@/components/notifications";
+
+export default {
+  components: {
+    Header,
+    Notifications,
+  },
+  methods: {
+    async testFullList() {
+      const response = await getCharacters({ page: 1, species: "human" });
+      console.log({ data: response.data });
+    },
+
+    async testChar() {
+      const response = await getCharacter(1);
+      console.log({ data: response.data });
+    },
+  },
+};
+</script>
+
 <style lang="scss">
+html,
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.app__wrapper {
+  position: relative;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.app__content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 48px;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.card__container {
+  border: 1px solid #afafaf;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card__content {
+  padding: 16px;
+  color: #000;
+
+  & h1,
+  & h4,
+  & p {
+    margin: 0px;
+    margin-bottom: 8px;
+    text-decoration: none;
   }
 }
 </style>
