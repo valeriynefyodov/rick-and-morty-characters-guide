@@ -16,4 +16,7 @@ npm run serve
 ### Production Build
 ```
 npm run build
+node server.js
 ```
+
+And then in browser `http://localhost:8081`
