@@ -2,7 +2,7 @@
   <div v-if="showPlaceholder">No cards</div>
   <div v-else class="cards__grid">
     <template v-if="isFetching">
-      <div v-for="mock in skeletonMockData" class="card__container" :key="mock">
+      <div v-for="mock in MOCK_DATA" class="card__container" :key="mock">
         <Skeleton :width="'100%'" :height="200" />
         <div class="card__content">
           <h4><Skeleton :width="150" :height="20" /></h4>
@@ -39,11 +39,6 @@ export default {
     FavouritesButton,
     Skeleton,
   },
-  data: function () {
-    return {
-      skeletonMockData: new Array(4),
-    };
-  },
   props: {
     isFetching: {
       type: Boolean,
@@ -58,6 +53,9 @@ export default {
     showPlaceholder() {
       return !this.isFetching && !this.characters.length;
     },
+  },
+  created() {
+    this.MOCK_DATA = Array(4);
   },
 };
 </script>
