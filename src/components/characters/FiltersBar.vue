@@ -27,10 +27,19 @@
         />
         <button
           role="button"
-          class="filters-bar__search-button"
+          class="filters-bar__button filters-bar__button_search"
+          :disabled="!name"
           @click="querySearch"
         >
           Search
+        </button>
+        <button
+          v-show="isSearch"
+          role="button"
+          class="filters-bar__button"
+          @click="clearSearch"
+        >
+          Clear
         </button>
       </div>
     </div>
@@ -43,13 +52,15 @@ import useFilter from "@/use/filter";
 
 export default {
   setup() {
-    const { name, querySearch } = useSearch("name");
+    const { name, isSearch, querySearch, clearSearch } = useSearch("name");
     const { species } = useFilter("species");
 
     return {
       name,
       species,
+      isSearch,
       querySearch,
+      clearSearch,
     };
   },
   created() {
@@ -122,16 +133,21 @@ input {
   }
 }
 
-.filters-bar__search-button {
+.filters-bar__button {
   padding: 8px;
-  border: 1px solid #000;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  cursor: pointer;
+  border: none;
+  border-radius: 2px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: #999;
+    cursor: pointer;
   }
+}
+
+.filters-bar__button_search {
+  border: 1px solid #000;
+  border-top-left-radius: none;
+  border-bottom-left-radius: none;
 
   &:disabled {
     border-color: #afafaf;

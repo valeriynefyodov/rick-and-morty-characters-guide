@@ -1,4 +1,5 @@
 import { getFavourites, setFavourites } from "@/services/favourites";
+import NOTIFICATION_TYPES from "@/constants/notifications";
 
 export const namespaced = true;
 
@@ -23,7 +24,7 @@ export const actions = {
     context.dispatch(
       "notifications/add",
       {
-        type: "success",
+        type: NOTIFICATION_TYPES.TYPE_SUCCESS,
         message: `${character.name} added to favourites`,
       },
       { root: true }
@@ -34,7 +35,7 @@ export const actions = {
     context.dispatch(
       "notifications/add",
       {
-        type: "success",
+        type: NOTIFICATION_TYPES.TYPE_SUCCESS,
         message: `${character.name} removed from favourites`,
       },
       { root: true }

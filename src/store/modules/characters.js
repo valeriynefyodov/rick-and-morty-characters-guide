@@ -1,4 +1,5 @@
-import { getCharacters } from "../../services/api";
+import { getCharacters } from "@/services/api";
+import NOTIFICATION_TYPES from "@/constants/notifications";
 
 export const namespaced = true;
 
@@ -41,7 +42,7 @@ export const actions = {
         context.dispatch(
           "notifications/add",
           {
-            type: "danger",
+            type: NOTIFICATION_TYPES.TYPE_DANGER,
             message: `Oops, something went wrong: ${err.message}`,
           },
           { root: true }

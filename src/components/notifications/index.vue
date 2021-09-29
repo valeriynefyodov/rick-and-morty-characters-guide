@@ -16,11 +16,6 @@ export default {
     NotificationBar,
   },
   computed: mapState("notifications", ["notifications"]),
-  watch: {
-    notifications(value) {
-      console.log(value);
-    },
-  },
 };
 </script>
 

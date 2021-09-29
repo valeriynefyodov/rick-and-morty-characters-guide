@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { getCharacters, getCharacter } from "@/services/api";
 import Header from "@/components/Header";
 import Notifications from "@/components/notifications";
 
@@ -15,17 +14,6 @@ export default {
   components: {
     Header,
     Notifications,
-  },
-  methods: {
-    async testFullList() {
-      const response = await getCharacters({ page: 1, species: "human" });
-      console.log({ data: response.data });
-    },
-
-    async testChar() {
-      const response = await getCharacter(1);
-      console.log({ data: response.data });
-    },
   },
 };
 </script>
