@@ -1,24 +1,19 @@
 # vnefyodov-vue-capstone
 
+## Demo
+https://vnefyodov-vue-capstone.herokuapp.com/
+
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Production Build
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
