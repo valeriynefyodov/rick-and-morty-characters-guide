@@ -25,3 +25,7 @@ export function getCharacters({ page, name, species }) {
 export function getCharacter(id) {
   return client.get(`/character/${id}`);
 }
+
+export function getEpisode(url) {
+  return client.get(url);
+}

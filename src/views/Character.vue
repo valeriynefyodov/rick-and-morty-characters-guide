@@ -11,9 +11,9 @@
         </template>
         <template v-else-if="character">
           <h1>{{ character.name }}</h1>
-          <p>{{ subtitle }}</p>
+          <p>{{ speciesStatus }}</p>
           <p>Last known location: {{ character.location.name }}</p>
-          <p>First seen in: {{ firstSeenIn }}</p>
+          <p>First seen in: {{ episodeName }}</p>
           <FavouritesButton :character="character" />
         </template>
       </div>
@@ -41,17 +41,10 @@ export default {
   },
 
   computed: {
-    ...mapState("character", ["character", "isFetching"]),
+    ...mapState("character", ["character", "episodeName", "isFetching"]),
 
-    subtitle() {
+    speciesStatus() {
       return `${this.character.species} - ${this.character.status}`;
-    },
-
-    firstSeenIn() {
-      const [firstEpisode] = this.character.episode;
-      return firstEpisode
-        ? `episode ${firstEpisode.split("/").pop()}`
-        : "unknown";
     },
   },
 
