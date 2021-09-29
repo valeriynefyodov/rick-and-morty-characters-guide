@@ -13,7 +13,7 @@
             :for="`species-${spc}`"
             :class="{ active: spc === (species || SPECIES_ALL) }"
           >
-            <span class="capitalize">{{ spc }}</span>
+            <span>{{ spc }}</span>
           </label>
         </template>
       </div>

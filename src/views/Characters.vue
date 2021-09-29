@@ -8,7 +8,6 @@
 
 <script>
 import { mapState } from "vuex";
-
 import FiltersBar from "@/components/characters/FiltersBar";
 import CardsList from "@/components/CardsList";
 import Pagination from "@/components/characters/Pagination";

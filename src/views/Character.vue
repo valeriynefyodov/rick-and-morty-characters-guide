@@ -25,7 +25,6 @@
 
 <script>
 import { mapState } from "vuex";
-
 import FavouritesButton from "@/components/FavouritesButton.vue";
 import Skeleton from "@/components/Skeleton.vue";
 

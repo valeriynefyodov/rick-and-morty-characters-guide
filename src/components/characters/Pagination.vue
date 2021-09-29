@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapState("characters", {
-      pagesCount: (state) => state.pages,
+      pagesCount: "pages",
     }),
     isNextDisabled() {
       return this.page === this.pagesCount;
