@@ -50,11 +50,9 @@ export default {
 
     firstSeenIn() {
       const [firstEpisode] = this.character.episode;
-      if (firstEpisode) {
-        return `episode ${firstEpisode.split("/").pop()}`;
-      }
-
-      return "-";
+      return firstEpisode
+        ? `episode ${firstEpisode.split("/").pop()}`
+        : "unknown";
     },
   },
 
